@@ -1,0 +1,11 @@
+cd /opt/
+git clone https://github.com/solidus-exchange/solidus-coin.git
+cd solidus-coin/depends
+make -j5
+cd /opt/solidus-coin
+./autogen.sh
+./configure --prefix=$(pwd)/depends/x86_64-pc-linux-gnu --with-gui=no
+make -j5
+cp src/solidus-cli /usr/local/bin
+cp src/solidus-tx /usr/local/bin
+cp src/solidusd /usr/local/bin
